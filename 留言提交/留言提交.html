@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言提交</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #wrap{
+            width: 400px;
+            margin: 50px auto 0;
+        }
+        #text{
+            width: 100%;
+            height:60px;
+            resize: none; /*  文本框不允许拖动 */
+        }
+        #btn{
+            float: right;
+        }
+        #list{
+            width: 100%;
+            margin-top: 40px;
+        }
+        #list li{
+            width: 100%;
+            padding: 10px 0;
+            text-indent: 2em;
+            color: #333;
+            border-bottom: 1px dotted #999;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <textarea id="text" cols="30" rows="10"></textarea>
+        <input type="button" value="提交" id="btn">
+        <ul id="list">
+        </ul>
+    </div>
+
+    <script>
+        let oBtn = document.getElementById("btn"),
+            oText= document.getElementById("text"),
+            oList= document.getElementById("list");
+
+        oBtn.onclick = function(){
+            let val = oText.value;
+            if(val){
+                oList.innerHTML += "<li>"+ val + "</li>"
+            oText.value = "";
+            }
+           
+        };
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #wrap ul {
+            position: absolute;
+            left: -50px;
+            width: 50px;
+            height: 100%;
+            background-color: #666;
+            text-align: center;
+        }
+
+        #wrap ul.show {
+            left: 0;
+        }
+
+        #wrap ul li {
+            margin: 20px 0;
+        }
+
+        #wrap ul li:first-child {
+            margin-top: 100px;
+        }
+
+        #btn {
+            position: absolute;
+            bottom: 50px;
+            width: 50px;
+            height: 50px;
+            background: url("./images/Sprite.png") 0 -60px;
+        }
+
+        #btn.show {
+            background: url("./images/Sprite.png") 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="aside">
+        <div id="wrap">
+            <ul>
+                <li><img src="./images/1.png" alt=""></li>
+                <li><img src="./images/2.png" alt=""></li>
+                <li><img src="./images/3.png" alt=""></li>
+                <li><img src="./images/4.png" alt=""></li>
+                <li><img src="./images/5.png" alt=""></li>
+            </ul>
+        </div>
+    </div>
+    <div id="btn"></div>
+    <script>
+        oBtn = document.getElementById("btn");
+        oUl = document.querySelector("#wrap ul");
+        //写法一
+        // let active = true; //true 是 添加  false 隐藏
+        // oBtn.onclick = function () {
+        //if (active) {
+        //  oUl.classList.add("show");
+        //  oBtn.classList.add("show");
+        //  active = false;
+        //} else {
+        //  oUl.classList.remove("show");
+        // oBtn.classList.remove("show");
+        //  active = true;
+        //}
+
+        //写法二(Es5最高级写法)
+        // let active = true;//自定义变量接收是否隐藏
+        // oBtn.onclick = function (){
+        // oUl.classList[active ? "add":"remove"]("show");
+        // oBtn.classList[active ? "add":"remove"]("show");
+        // active = !active; 
+        // }
+
+        //写法三(ES6)
+        oBtn.onclick = function () {
+            oBtn.classList.toggle("show");
+            oUl.classList.toggle("show");
+        }
+
+
+    </script>
+</body>
+
+</html>

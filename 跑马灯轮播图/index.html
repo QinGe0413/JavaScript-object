@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>轮播图</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="imglist">
+            <img src="./img/1.jpg" alt="" />
+            <img src="./img/2.jpg" alt="" />
+            <img src="./img/3.jpg" alt="" />
+            <img src="./img/4.jpg" alt="" />
+            <img src="./img/5.jpg" alt="" />
+        </div>
+        <div class="arrow">
+            <a href="javascript:;" class="left">&lt;</a>
+            <a href="javascript:;" class="right">&gt;</a>
+        </div>
+        <ol class="circles" id="circles-ol">
+            <li class="active" data-n="0"></li>
+            <li data-n="1"></li>
+            <li data-n="2"></li>
+            <li data-n="3"></li>
+            <li data-n="4"></li>
+        </ol>
+    </div>
+    <script src="javascript.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 50px;
+            margin: 50px auto;
+            text-align: center; 
+            line-height: 50px;
+            border: 1px solid red;
+            background-color: rgb(135, 130, 155);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <script>
+        let oBox1 = document.getElementById("box1"),
+            oBox2 = document.getElementById("box2");
+
+            oBox1.onmouseenter = function(){
+                oBox2.innerText = "鼠标进入box2";
+            }
+            oBox2.onmouseenter = function(){
+                oBox1.innerText = "鼠标进入box1";
+            }
+            oBox1.onmouseleave = function(){
+                oBox2.innerText = " ";
+            }
+            oBox2.onmouseleave = function(){
+                oBox1.innerText = " ";
+            }
+    </script>
+</body>
+</html>

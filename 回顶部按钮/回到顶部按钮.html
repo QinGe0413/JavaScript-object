@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回到顶部按钮</title>
+    <style>
+        body {
+            height: 5000px;
+            background-image: linear-gradient(to bottom, green, red, pink, orange);
+        }
+
+        #backtotop {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 80px;
+            width: 80px;
+            height: 80px;
+            background-color: #ccc;
+            /* font-size: 20px; */
+            cursor: pointer;
+            text-align: center;
+            line-height: 80px;
+            color: #000;
+            user-select: none;
+        }
+
+        #backtotop .remove {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="backtotop">
+        回到顶部
+    </div>
+    <script>
+        let backToTop = document.getElementById("backtotop");
+        let timer;
+        //返回顶部按钮监听
+        backToTop.onclick = function () {
+            //设表先关
+            clearInterval(timer);
+            timer = setInterval(function () {
+                document.documentElement.scrollTop -= 90;
+                //如果卷动值为0 则清除定时器
+                if (document.documentElement.scrollTop <= 0) {
+                    clearInterval(timer);
+                }
+            }, 20)
+        }
+        //监听页面滚动事件
+        window.onscroll = function () {
+            let scrollTop = document.documentElement.scrollTop || window.scrollY;
+            //判断页面是否滚动
+            if (scrollTop === 0) {
+                backToTop.style.display = "none";
+            } else {
+                backToTop.style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>

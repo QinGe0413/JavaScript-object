@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+        const input = document.querySelector("input");
+        // let timer;
+        // input.onkeyup = function () {
+        //     if(timer){
+        //         clearTimeout(timer);
+        //     }
+        //     timer = setTimeout(() => {
+        //         console.log(input.value);
+        //     }, 500);
+        // };
+        //封装防抖函数
+        function debounce(fn, delay = 500) {
+            //timer 是闭包中的
+            let timer;
+            return function () {
+                if (timer) {
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(() => {
+                    fn();
+                }, delay);
+            }
+        }
+        input.onkeyup = debounce(() => {
+            console.log(input.value);
+        }, 1000);
+        // input.addEventListener(
+        //     "keyup",
+        //     debounce(()=>{
+        //         console.log(input.value);
+        //     },1000)//设置值则覆盖默认
+        // )
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节流</title>
+    <style>
+        #wrap{
+            width: 200px;
+            height: 200px;
+            font-size: 40px;
+            text-align: center;
+            line-height: 200px;
+            border: 2px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap" draggable="true">拖拽</div>
+    <!-- <script>
+        let oWrap = document.getElementById("wrap");
+        let timer;
+        oWrap.ondrag = function(e){
+            if(timer) return;
+            timer = setTimeout(()=>{
+                console.log(e.offsetX , e.offsetY);
+                timer = null;
+            },500)
+        }
+    </script> -->
+    
+    <script>
+        //封装throtle 节流函数
+        let oWrap = document.getElementById("wrap");
+        function throttle(fn , delay = 300){
+            let timer;
+            return function(){
+                if(timer) return;
+                timer = setTimeout(()=>{
+                    fn.apply(this,arguments);
+                    timer = null;
+                },delay)
+            }
+        }
+         oWrap.ondrag = throttle((e)=>{
+            console.log(e.offsetX , e.offsetY);
+         },200)
+    </script>
+</body>
+</html>

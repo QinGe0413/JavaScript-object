@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机色卡</title>
+    <style>
+        #wrap p {
+            float: left;
+            width: 150px;
+            height: 30px;
+            margin: 3px;
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+    </div>
+    <script>
+        (function () {
+            let oWrap = document.getElementById("wrap");
+            function randomColorCard() {
+                //随机出[a,b]之间的随机数
+                //parseInt( Math.random()* (b-a+1)+a  )
+                //随机 0 -b
+                //parseInt( Math.random()* (b+1) );
+                let r = parseInt(Math.random() * 256);
+                let g = parseInt(Math.random() * 256);
+                let b = parseInt(Math.random() * 256);
+                let oP = document.createElement("p");
+                oP.innerHTML = `<p style="background-color:rgb(${r},${g},${b})">
+                    rgb(${r},${g},${b})</p>`;
+                oWrap.appendChild(oP);
+            }
+            setInterval(randomColorCard, 500);
+        })();
+
+    </script>
+</body>
+
+</html>

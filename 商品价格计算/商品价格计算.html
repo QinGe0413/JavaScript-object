@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单的计算</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 500px;
+            border-collapse: collapse;
+            margin: 50px auto 0;
+        }
+
+        table th,
+        td {
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+            user-select: none;
+            /* 无法选中复制 */
+        }
+
+        table th {
+            height: 30px;
+        }
+
+        table td#quantity #sub,
+        #add {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #666;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>图片</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>价格</th>
+        </tr>
+        <tr>
+            <td id="img">
+                <img src="./img/xh_img1.jpg" width="50" alt="">
+            </td>
+            <td id="unit_price">20</td>
+            <td id="quantity">
+                <span id="sub">－</span>
+                <span id="number">0</span>
+                <span id="add">＋</span>
+            </td>
+            <td id="price">0</td>
+        </tr>
+    </table>
+
+    <script>
+        let oAdd = document.getElementById("add"),
+            oSub = document.getElementById("sub"),
+            oNum = document.getElementById("number"),
+            oPrice = document.getElementById("price"),
+            oUpc = document.getElementById("unit_price");
+
+        oAdd.onclick = function () {
+            let n = oNum.innerText;
+            console.log(oNum.innerText);
+            n++;
+            oNum.innerText = n;
+            //获取单价
+            let p = n * oUpc.innerText;
+            oPrice.innerText = p;
+        };
+        oSub.onclick = function () {
+            let n = oNum.innerText;
+            if (n > 0) {
+                n--;
+                oNum.innerText = n;
+            }
+
+            let p = n * oUpc.innerText;
+            oPrice.innerText = p;
+        };
+    </script>
+</body>
+
+</html>
